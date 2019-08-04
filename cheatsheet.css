@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,200i,400,400i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700&display=swap');
 :root {
   font-size: 2vw;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   --couleur-principale: #456;
   --couleur-secondaire: #789;
 }
@@ -10,6 +13,9 @@ html {
 body {
   height: 100%;
   margin: 0;
+}
+code {
+  font-family: 'Nanum Gothic Coding', monospace;
 }
 div.interface {
   min-height: 100%;
@@ -77,9 +83,127 @@ header h5,
 header h6 {
   margin: 0;
 }
+.body {
+  padding: 1em;
+}
+.body h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+ul.commandes {
+  line-height: 1;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.commandes li {
+  display: grid;
+  margin-top: 1em;
+}
+ul.commandes .terme {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  justify-content: flex-start;
+  align-items: baseline;
+  border-bottom: 1px solid black;
+  padding-bottom: .2em;
+  margin-bottom: .2em;
+}
+ul.commandes .keyword {
+  font-weight: bold;
+}
+ul.commandes .prefixe {
+  font-size: smaller;
+  font-weight: 200;
+  font-style: italic;
+}
+ul.commandes .parametres {
+  align-self: center;
+  font-size: smaller;
+  quotes: "(" ")";
+}
+ul.commandes .parametres::before {
+  content: open-quote;
+}
+ul.commandes .parametres::after {
+  content: close-quote;
+}
+ul.commandes .parametres span + span::before {
+  content: ", ";
+}
+ul.commandes var {
+  color: blue;
+}
+.compact {
+  grid-gap: 1em;
+}
+.compact li {
+  grid-template-columns: 15ch 2fr;
+}
+.compact iv.terme {
+  align-items: flex-start;
+  grid-auto-flow: row;
+}
+.compact .parametres {
+  align-self: flex-start;
+}
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"]#details:not(:checked) ~ * .prefixe {
+  display: none;
+}
+input[type="checkbox"]#details:not(:checked) ~ * .parametres * {
+  display: none;
+}
+input[type="checkbox"]#compact:checked ~ ul.commandes {
+  grid-gap: 1em;
+}
+input[type="checkbox"]#compact:checked ~ ul.commandes li {
+  grid-template-columns: 15ch 2fr;
+}
+input[type="checkbox"]#compact:checked ~ ul.commandes iv.terme {
+  align-items: flex-start;
+  grid-auto-flow: row;
+}
+input[type="checkbox"]#compact:checked ~ ul.commandes .parametres {
+  align-self: flex-start;
+}
+input[type="checkbox"]#details:checked ~ * label[for="details"],
+input[type="checkbox"]#compact:checked ~ * label[for="compact"] {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+input[type="checkbox"]#details:checked ~ * label[for="details"]::before,
+input[type="checkbox"]#compact:checked ~ * label[for="compact"]::before {
+  content: "✔";
+}
+.options {
+  font-size: .7em;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: .5em;
+  justify-content: flex-end;
+}
+.options > * {
+  padding: 0.25em 0.5em;
+  background-color: #eee;
+  border-radius: .25em;
+}
+.options > *::before {
+  content: "\a0";
+  line-height: 0;
+  border: 1px solid black;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: .8em;
+  height: .8em;
+  margin-right: .25em;
+}
 @media all and (max-aspect-ratio: 1 / 1) {
   :root {
-    font-size: 5vw;
+    font-size: 4vw;
   }
   div.interface > nav {
     font-size: 1em;

@@ -8,6 +8,120 @@
 	<title>Document</title>
 </head>
 <body>
+	<input type="checkbox" name="details" id="details"/>
+	<!-- <input type="checkbox" name="compact" id="compact"/> -->
+	<div class="options">
+		<label for="details">Détails</label>
+		<!-- <label for="compact">Compact</label> -->
+	</div>
 	<h1>DOM : Document Object Model</h1>
+	<ul class="glossaire">
+		<li>element : un objet logique représentant une balise affichable dans la page.</li>
+	</ul>
+	<ul class="commandes">
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">document.</span>
+				<span class="keyword">createElement</span>
+				<span class="parametres">
+					<span>nom</span>
+				</span>
+			</div>
+			<div class="definition">Retourne un nouvel élément DOM vide</div>
+			<!-- <span class="exemple">var age = document.creatteElement("span");</span> -->
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">parent.</span>
+				<span class="keyword">appendChild</span>
+				<span class="parametres">
+					<span>fils</span>
+				</span>
+			</div>
+			<div class="definition">Ajoute l'élément <var>fils</var> dans l'élément <var>parent</var>.</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">parent.</span>
+				<span class="keyword">insertBefore</span>
+				<span class="parametres">
+					<span>enfant</span>
+					<span>ref</span>
+				</span>
+			</div>
+			<div class="definition">Ajoute l'élément <var>fils</var> dans l'élément <var>parent</var> juste avant l'élément <var>ref</var>.</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">innerHTML</span>
+			</div>
+			<div class="definition">Contient le HTML brut du contenu de <var>element</var>. Permet également de le modifier.</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">getAttribute</span>
+				<span class="parametres">
+					<span>nom</span>
+				</span>
+			</div>
+			<div class="definition">Retourne la valeur de l'attribut <var>nom</var> de <var>element</var>.</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">setAttribute</span>
+				<span class="parametres">
+					<span>nom</span>
+					<span>valeur</span>
+				</span>
+			</div>
+			<div class="definition">Modifie la <var>valeur</var> de l'attribut <var>nom</var> de <var>element</var>.</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">classList.add</span>
+				<span class="parametres">
+					<span>classe</span>
+				</span>
+			</div>
+			<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var>. (Modifie l'attribut <code>class</code>)</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">classList.remove</span>
+				<span class="parametres">
+					<span>classe</span>
+				</span>
+			</div>
+			<div class="definition">Retire la <var>classe</var> de <var>element</var>.</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">classList.toggle</span>
+				<span class="parametres">
+					<span>classe</span>
+				</span>
+			</div>
+			<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var> si elle n'y est pas ou la retire sinon.</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">classList.contains</span>
+				<span class="parametres">
+					<span>classe</span>
+					<!-- <span>etat</span> -->
+				</span>
+			</div>
+			<div class="definition">Indique si la <var>classe</var> est appliquée à <var>element</var>.</div>
+		</li>
+		<!-- li[data-n=0]>(div.terme>span.prefixe+span.keyword+(span.parametres>span))+div.definition -->
+	</ul>
+	
 </body>
 </html>
