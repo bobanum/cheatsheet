@@ -125,8 +125,7 @@ class Interface {
 			"javascript.html": "Langage \nJavascript",
 			"dom.html": "DOM",
 			"events.html": "Événements",
-			"promise.html": "Promesses",
-			"ajax.html": "Données \nexternes",
+			"async.html": "Asynchrone",
 		};
 		var ici = window.location.pathname.split("/").slice(-1)[0];
 		if (ici === "") {
