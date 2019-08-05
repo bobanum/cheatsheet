@@ -8,17 +8,49 @@
 	<title>Document</title>
 </head>
 <body>
-	<input type="checkbox" name="details" id="details"/>
-	<!-- <input type="checkbox" name="compact" id="compact"/> -->
-	<div class="options">
-		<label for="details">Détails</label>
-		<!-- <label for="compact">Compact</label> -->
-	</div>
 	<h1>DOM : Document Object Model</h1>
 	<ul class="glossaire">
 		<li>element : un objet logique représentant une balise affichable dans la page.</li>
 	</ul>
 	<ul class="commandes">
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">document.</span>
+				<span class="keyword">getElementById</span>
+				<span class="parametres">
+					<span>id</span>
+				</span>
+			</div>
+			<div class="definition">Retourne l'élément dont l'attribut <var>id</var> correspond à <var>id</var></div>
+			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L23">Exemple dans "Population"</a></div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">querySelector</span>
+				<span class="parametres">
+					<span>selecteur</span>
+				</span>
+			</div>
+			<div class="definition">...</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">querySelectorAll</span>
+				<span class="parametres">
+					<span>selecteur</span>
+				</span>
+			</div>
+			<div class="definition">...</div>
+		</li>
+		<li data-n="0">
+			<div class="terme">
+				<span class="prefixe">element.</span>
+				<span class="keyword">parentNode</span>
+			</div>
+			<div class="definition">...</div>
+		</li>
 		<li data-n="0">
 			<div class="terme">
 				<span class="prefixe">document.</span>
@@ -28,7 +60,7 @@
 				</span>
 			</div>
 			<div class="definition">Retourne un nouvel élément DOM vide</div>
-			<!-- <span class="exemple">var age = document.creatteElement("span");</span> -->
+			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L49L50">Exemple dans "Population"</a></div>
 		</li>
 		<li data-n="0">
 			<div class="terme">
@@ -39,6 +71,8 @@
 				</span>
 			</div>
 			<div class="definition">Ajoute l'élément <var>fils</var> dans l'élément <var>parent</var>.</div>
+			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L56L57">Exemple dans "Population"</a></div>
+			
 		</li>
 		<li data-n="0">
 			<div class="terme">
@@ -57,6 +91,7 @@
 				<span class="keyword">innerHTML</span>
 			</div>
 			<div class="definition">Contient le HTML brut du contenu de <var>element</var>. Permet également de le modifier.</div>
+			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L59">Exemple dans "Population"</a></div>
 		</li>
 		<li data-n="0">
 			<div class="terme">
@@ -88,6 +123,7 @@
 				</span>
 			</div>
 			<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var>. (Modifie l'attribut <code>class</code>)</div>
+			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L49L50">Exemple dans "Population"</a></div>
 		</li>
 		<li data-n="0">
 			<div class="terme">
@@ -107,7 +143,7 @@
 					<span>classe</span>
 				</span>
 			</div>
-			<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var> si elle n'y est pas ou la retire sinon.</div>
+			<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var> si elle n'y est pas (sinon, retire la <var>classe</var>).</div>
 		</li>
 		<li data-n="0">
 			<div class="terme">
