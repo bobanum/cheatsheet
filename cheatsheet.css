@@ -7,6 +7,7 @@
   font-family: 'Fira Sans', sans-serif;
   --couleur-principale: #456;
   --couleur-secondaire: #789;
+  --couleur-coche: #456;
 }
 html {
   height: 100%;
@@ -28,6 +29,7 @@ div.interface > header,
 div.interface > footer {
   background-color: var(--couleur-principale);
   background-image: url(images/motif_filet.svg);
+  background-size: 6em;
   padding: .5em 1em;
   color: #fff;
 }
@@ -167,6 +169,12 @@ ul.commandes var {
   grid-gap: .5em;
   justify-content: flex-end;
   background-color: #e0e6eb;
+  color: var(--couleur-coche);
+  fill: var(--couleur-coche);
+}
+.options svg {
+  height: 1.5em;
+  order: -1;
 }
 .options > * {
   display: flex;
@@ -180,6 +188,7 @@ ul.commandes var {
 }
 .options > *.checkbox::before {
   content: "\a0";
+  order: -10;
   line-height: 2;
   background-color: white;
   border-radius: 100%;
@@ -196,6 +205,9 @@ ul.commandes var {
 }
 #importance {
   width: 4em;
+}
+.masquer-exemples .exemple {
+  display: none;
 }
 :root:not(.afficher-exemples) .exemple {
   display: none;
@@ -224,6 +236,9 @@ ul.commandes var {
 :root.compact .exemple {
   display: none;
 }
+:root.compact .exemple {
+  display: none;
+}
 :root.compact ul.commandes {
   grid-gap: 0em;
 }
@@ -238,6 +253,24 @@ ul.commandes var {
   align-self: flex-start;
 }
 :root.compact span.for-compact::before {
+  background-color: #456;
+}
+:root:not(.fondamental) *[data-n="0"] {
+  display: none;
+}
+:root.fondamental span.for-fondamental::before {
+  background-color: #456;
+}
+:root:not(.intermediaire) *[data-n="1"] {
+  display: none;
+}
+:root.intermediaire span.for-intermediaire::before {
+  background-color: #456;
+}
+:root:not(.avance) *[data-n="2"] {
+  display: none;
+}
+:root.avance span.for-avance::before {
   background-color: #456;
 }
 @media all and (max-aspect-ratio: 1 / 1) {
@@ -291,5 +324,28 @@ ul.commandes var {
   }
   div.interface > div.body {
     flex: 1 0 auto;
+  }
+}
+@media print {
+  div.interface {
+    height: auto;
+  }
+  div.interface > nav,
+  div.interface > .options {
+    display: none;
+  }
+  div.interface > header {
+    border-bottom: .5pt solid black;
+  }
+  div.interface > footer {
+    border-top: .5pt solid black;
+  }
+  div.interface > header,
+  div.interface > footer {
+    background: none;
+    color: black;
+  }
+  div.interface .exemple > a {
+    display: none;
   }
 }

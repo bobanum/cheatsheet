@@ -7,6 +7,7 @@
 	font-family: 'Fira Sans', sans-serif;
 	--couleur-principale: #456;
 	--couleur-secondaire: #789;
+	--couleur-coche: #456;
 }
 
 html {
@@ -32,6 +33,7 @@ div.interface {
 	& > footer {
 		background-color: var(--couleur-principale);
 		background-image: url(images/motif_filet.svg);
+		background-size: 6em;
 		padding: .5em 1em;
 		color: #fff;
 	}
@@ -207,6 +209,13 @@ ul.commandes {
 	grid-gap: .5em;
 	justify-content: flex-end;
 	background-color: hsl(210, 20%, 90%);
+	color: var(--couleur-coche);
+	fill: var(--couleur-coche);
+	svg {
+//		width: 1em;
+		height: 1.5em;
+		order: -1;
+	}
 	& > * {
 		display: flex;
 		align-items: center;
@@ -216,20 +225,21 @@ ul.commandes {
 		&:hover {
 			background-color: hsla(0, 0%, 0%, .05);
 		}
-	}
-	& > *.checkbox {
-		&::before {
-			content: "\a0";
-			line-height: 2;
-			background-color: white;
-			border-radius: 100%;
-			border: 2px solid white;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			width: 0.7em;
-			height: 0.7em;
-			margin-right: .25em;
+		&.checkbox {
+			&::before {
+				content: "\a0";
+				order: -10;
+				line-height: 2;
+				background-color: white;
+				border-radius: 100%;
+				border: 2px solid white;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 0.7em;
+				height: 0.7em;
+				margin-right: .25em;
+			}
 		}
 	}
 }
@@ -246,13 +256,13 @@ ul.commandes {
 #importance {
 	width: 4em;
 }
-.masquer-exemples) {
+.masquer-exemples {
 	.exemple {
 		display:none;
 	}
 }
 :root:not(.afficher-exemples) {
-	.masquer-exemples {
+	.masquer-exemples;
 }
 :root.afficher-exemples {
 	span.for-afficher-exemples {
@@ -301,7 +311,36 @@ ul.commandes {
 		.option-checked;
 	}
 }
-
+:root:not(.fondamental) {
+	*[data-n="0"] {
+		display: none;
+	}
+}
+:root.fondamental {
+	span.for-fondamental {
+		.option-checked;
+	}
+}
+:root:not(.intermediaire) {
+	*[data-n="1"] {
+		display: none;
+	}
+}
+:root.intermediaire {
+	span.for-intermediaire {
+		.option-checked;
+	}
+}
+:root:not(.avance) {
+	*[data-n="2"] {
+		display: none;
+	}
+}
+:root.avance {
+	span.for-avance {
+		.option-checked;
+	}
+}
 
 @media all and (max-aspect-ratio: 1 e('/') 1) {
 	:root {
@@ -370,4 +409,26 @@ ul.commandes {
 			flex: 1 0 auto;
 		}
 	}
+}
+@media print {
+	div.interface {
+		height: auto;
+		& > nav, & > .options {
+			display:none;
+		}
+		& > header {
+			border-bottom: .5pt solid black;
+		}
+		& > footer {
+			border-top: .5pt solid black;
+		}
+		& > header, & > footer {
+			background: none;
+			color: black;
+		}
+		.exemple > a {
+			display: none;
+		}
+	}
+
 }

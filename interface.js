@@ -11,6 +11,9 @@ class Interface {
 	}
 	static ajouterStyle() {
 		document.currentScript.parentNode.insertBefore(this.dom_link("cheatsheet.css"), document.currentScript);
+		var s = this.dom_style();
+		document.currentScript.parentNode.insertBefore(s, document.currentScript);
+		this.style = s.sheet;
 	}
 	static ajouterPrism() {
 		var link = document.createElement("link");
@@ -21,6 +24,10 @@ class Interface {
 		document.currentScript.parentNode.insertBefore(this.dom_link("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/plugins/line-numbers/prism-line-numbers.css"), document.currentScript);
 		document.currentScript.parentNode.insertBefore(this.dom_script("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.js"), document.currentScript);
 		document.currentScript.parentNode.insertBefore(this.dom_script("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/plugins/line-numbers/prism-line-numbers.js"), document.currentScript);
+	}
+	static dom_style() {
+		var resultat = document.createElement("style");
+		return resultat;
 	}
 	static dom_link(href) {
 		var resultat = document.createElement("link");
@@ -47,29 +54,39 @@ class Interface {
 		var resultat, option;
 		resultat = document.createElement("div");
 		resultat.classList.add("options");
+
 //		option = resultat.appendChild(this.dom_option_range("importance", "Importance", "0", "3"));
-		option = resultat.appendChild(this.dom_option_checkbox("afficher-exemples", "Exemples"));
+		option = resultat.appendChild(this.dom_option_checkbox("fondamental", "Fondamental", true));
+		option.appendChild(this.dom_icone("fondamental"));
+		option = resultat.appendChild(this.dom_option_checkbox("intermediaire", "Intermédiaire"));
+		option.appendChild(this.dom_icone("intermediaire"));
+		option = resultat.appendChild(this.dom_option_checkbox("avance", "Avancé"));
+		option.appendChild(this.dom_icone("avance"));
+		option = resultat.appendChild(this.dom_option_checkbox("afficher-exemples", "Exemples", true));
 		option = resultat.appendChild(this.dom_option_checkbox("concis", "Concis"));
 		option = resultat.appendChild(this.dom_option_checkbox("compact", "Compact"));
 		return resultat;
 	}
-	static dom_option_checkbox(id, etiquette, events) {
+	static dom_icone(id) {
+		var resultat = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		resultat.setAttribute("viewBox", "0 0 256 256");
+		var use = resultat.appendChild(document.createElementNS("http://www.w3.org/2000/svg", "use"));
+		use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "images/niveaux.svg#" + id);
+		return resultat;
+	}
+	static dom_option_checkbox(id, etiquette, defaut = false) {
 		var resultat;
 		resultat = document.createElement("span");
+		window.localStorage[id] = window.localStorage[id] || defaut;
 		document.documentElement.classList.toggle(id, window.localStorage[id] === "true");
+		this.style.addRule(":root."+id+" span.for-"+id+"::before", "background-color: var(--couleur-coche);");
 		resultat.classList.add("checkbox");
 		resultat.classList.add("for-" + id);
 		resultat.innerHTML = etiquette;
-		if (events) {
-			for (let k in events) {
-				resultat.addEventListener(k, events[k]);
-			}
-		} else {
-			resultat.addEventListener("click", () => {
-				document.documentElement.classList.toggle(id);
-				window.localStorage[id] = document.documentElement.classList.contains(id);
-			});
-		}
+		resultat.addEventListener("click", () => {
+			document.documentElement.classList.toggle(id);
+			window.localStorage[id] = document.documentElement.classList.contains(id);
+		});
 		return resultat;
 	}
 	static dom_option_range(id, etiquette, min="0", max="10", events=null) {
