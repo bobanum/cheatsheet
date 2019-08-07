@@ -63,8 +63,11 @@ class Interface {
 		option = resultat.appendChild(this.dom_option_checkbox("avance", "Avancé"));
 		option.appendChild(this.dom_icone("avance"));
 		option = resultat.appendChild(this.dom_option_checkbox("afficher-exemples", "Exemples", true));
+		option.appendChild(this.dom_icone("exemples"));
 		option = resultat.appendChild(this.dom_option_checkbox("concis", "Concis"));
+		option.appendChild(this.dom_icone("concis"));
 		option = resultat.appendChild(this.dom_option_checkbox("compact", "Compact"));
+		option.appendChild(this.dom_icone("compact"));
 		return resultat;
 	}
 	static dom_icone(id) {
@@ -211,6 +214,9 @@ class Interface {
 		});
 	}
 	static dom_exemple(data, start=1) {
+		while(data.findIndex(d => d[0] !== "\t") === -1) {
+			data = data.map(d => d.substr(1));
+		}
 		var resultat = document.createElement("pre");
 		resultat.setAttribute("data-start", start);
 		resultat.classList.add("language-javascript");

@@ -5,158 +5,232 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 	<script src="interface.js"></script>
-	<title>Document</title>
+	<title>DOM : Document Object Model</title>
 </head>
 <body>
 	<h1>DOM : Document Object Model</h1>
+	<h2>Glossaire</h2>
 	<ul class="glossaire">
-		<li>element : un objet logique représentant une balise affichable dans la page.</li>
+		<li><strong>Élément HTML</strong> : un objet logique représentant une balise affichable dans la page.</li>
+		<li><strong>NodeList</strong> : un objet semblable à un array contenant des éléments HTML.</li>
 	</ul>
-	<ul class="commandes">
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">document.</span>
-				<span class="keyword">getElementById</span>
-				<span class="parametres">
-					<span>id</span>
-				</span>
-			</div>
-			<div class="definition">Retourne l'élément dont l'attribut <var>id</var> correspond à <var>id</var></div>
-			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L23">Exemple dans "Population"</a></div>
+	<ul class="sections">
+		<li>
+			<h2>Parcourir</h2>
+			<ul class="commandes">
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">document.</span>
+						<span class="keyword">getElementById</span>
+						<span class="parametres">
+							<span>id</span>
+						</span>
+					</div>
+					<div class="definition">Retourne l'élément dont l'attribut <code>id</code> correspond à <var>id</var></div>
+					<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L23">Exemple dans "Population"</a></div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">querySelector</span>
+						<span class="parametres">
+							<span>selecteur</span>
+						</span>
+					</div>
+					<div class="definition">...</div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">querySelectorAll</span>
+						<span class="parametres">
+							<span>selecteur</span>
+						</span>
+					</div>
+					<div class="definition">...</div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">parentNode</span>
+					</div>
+					<div class="definition">...</div>
+				</li>
+				<li data-n="1">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">children</span>
+					</div>
+					<div class="definition">...</div>
+				</li>
+				<li data-n="1">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">childNodes</span>
+					</div>
+					<div class="definition">...</div>
+				</li>
+				<li data-n="1">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">firstChild</span>
+					</div>
+					<div class="definition">...</div>
+				</li>
+				<li data-n="1">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">firstElementChild</span>
+					</div>
+					<div class="definition">...</div>
+				</li>
+				<li data-n="1">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">nextSibling</span>
+<!--
+						<span class="separateur">/</span>
+						<span class="prefixe">element.</span>
+						<span class="keyword">previousSibling</span>
+-->
+					</div>
+					<div class="definition">...</div>
+				</li>
+				<li data-n="1">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">nextElementSibling</span>
+<!--
+						<span class="separateur">/</span>
+						<span class="prefixe">element.</span>
+						<span class="keyword">previousElementSibling</span>
+-->
+					</div>
+					<div class="definition">...</div>
+				</li>
+			</ul>
 		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">querySelector</span>
-				<span class="parametres">
-					<span>selecteur</span>
-				</span>
-			</div>
-			<div class="definition">...</div>
+		<li>
+			<h2>Modifier</h2>
+			<ul class="commandes">
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">document.</span>
+						<span class="keyword">createElement</span>
+						<span class="parametres">
+							<span>nom</span>
+						</span>
+					</div>
+					<div class="definition">Retourne un nouvel élément DOM vide</div>
+					<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L49L50">Exemple dans "Population"</a></div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">parent.</span>
+						<span class="keyword">appendChild</span>
+						<span class="parametres">
+							<span>fils</span>
+						</span>
+					</div>
+					<div class="definition">Ajoute l'élément <var>fils</var> dans l'élément <var>parent</var>.</div>
+					<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L56L57">Exemple dans "Population"</a></div>
+
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">parent.</span>
+						<span class="keyword">insertBefore</span>
+						<span class="parametres">
+							<span>enfant</span>
+							<span>ref</span>
+						</span>
+					</div>
+					<div class="definition">Ajoute l'élément <var>fils</var> dans l'élément <var>parent</var> juste avant l'élément <var>ref</var>.</div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">innerHTML</span>
+					</div>
+					<div class="definition">Contient le HTML brut du contenu de <var>element</var>. Permet également de le modifier.</div>
+					<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L59">Exemple dans "Population"</a></div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">getAttribute</span>
+						<span class="parametres">
+							<span>nom</span>
+						</span>
+					</div>
+					<div class="definition">Retourne la valeur de l'attribut <var>nom</var> de <var>element</var>.</div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">setAttribute</span>
+						<span class="parametres">
+							<span>nom</span>
+							<span>valeur</span>
+						</span>
+					</div>
+					<div class="definition">Modifie la <var>valeur</var> de l'attribut <var>nom</var> de <var>element</var>.</div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">classList.add</span>
+						<span class="parametres">
+							<span>classe</span>
+						</span>
+					</div>
+					<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var>. (Modifie l'attribut <code>class</code>)</div>
+					<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L49L50">Exemple dans "Population"</a></div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">classList.remove</span>
+						<span class="parametres">
+							<span>classe</span>
+						</span>
+					</div>
+					<div class="definition">Retire la <var>classe</var> de <var>element</var>.</div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">classList.toggle</span>
+						<span class="parametres">
+							<span>classe</span>
+						</span>
+					</div>
+					<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var> si elle n'y est pas (sinon, retire la <var>classe</var>).</div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">classList.contains</span>
+						<span class="parametres">
+							<span>classe</span>
+							<!-- <span>etat</span> -->
+						</span>
+					</div>
+					<div class="definition">Indique si la <var>classe</var> est appliquée à <var>element</var>.</div>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="prefixe">element.</span>
+						<span class="keyword">style.<var>proprieteCSS</var></span>
+					</div>
+					<div class="definition">Représente la <var>proprieteCSS</var> appliquée dans l'attribut <code>style</code> de <var>element</var>. Modifie l'attribut <code>style</code>. Une propriété contenant plusieurs mots (<code>list-style-type</code>) sera nommée à l'aide de majuscules (<code>listStyleType</code>)</div>
+					<div class="exemple"><a href="https://github.com/js-cstj/palette/blob/master/src/App.js#L14L15">Exemple dans "Palette"</a></div>
+				</li>
+				<!--
+					li[data-n=0]>(div.terme>span.prefixe+span.keyword+(span.parametres>span))+div.definition+div.exemple>a>{Exemple dans "Github"}
+				-->
+			</ul>
 		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">querySelectorAll</span>
-				<span class="parametres">
-					<span>selecteur</span>
-				</span>
-			</div>
-			<div class="definition">...</div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">parentNode</span>
-			</div>
-			<div class="definition">...</div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">document.</span>
-				<span class="keyword">createElement</span>
-				<span class="parametres">
-					<span>nom</span>
-				</span>
-			</div>
-			<div class="definition">Retourne un nouvel élément DOM vide</div>
-			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L49L50">Exemple dans "Population"</a></div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">parent.</span>
-				<span class="keyword">appendChild</span>
-				<span class="parametres">
-					<span>fils</span>
-				</span>
-			</div>
-			<div class="definition">Ajoute l'élément <var>fils</var> dans l'élément <var>parent</var>.</div>
-			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L56L57">Exemple dans "Population"</a></div>
-			
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">parent.</span>
-				<span class="keyword">insertBefore</span>
-				<span class="parametres">
-					<span>enfant</span>
-					<span>ref</span>
-				</span>
-			</div>
-			<div class="definition">Ajoute l'élément <var>fils</var> dans l'élément <var>parent</var> juste avant l'élément <var>ref</var>.</div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">innerHTML</span>
-			</div>
-			<div class="definition">Contient le HTML brut du contenu de <var>element</var>. Permet également de le modifier.</div>
-			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L59">Exemple dans "Population"</a></div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">getAttribute</span>
-				<span class="parametres">
-					<span>nom</span>
-				</span>
-			</div>
-			<div class="definition">Retourne la valeur de l'attribut <var>nom</var> de <var>element</var>.</div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">setAttribute</span>
-				<span class="parametres">
-					<span>nom</span>
-					<span>valeur</span>
-				</span>
-			</div>
-			<div class="definition">Modifie la <var>valeur</var> de l'attribut <var>nom</var> de <var>element</var>.</div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">classList.add</span>
-				<span class="parametres">
-					<span>classe</span>
-				</span>
-			</div>
-			<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var>. (Modifie l'attribut <code>class</code>)</div>
-			<div class="exemple"><a href="https://github.com/js-cstj/population/blob/master/src/App.js#L49L50">Exemple dans "Population"</a></div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">classList.remove</span>
-				<span class="parametres">
-					<span>classe</span>
-				</span>
-			</div>
-			<div class="definition">Retire la <var>classe</var> de <var>element</var>.</div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">classList.toggle</span>
-				<span class="parametres">
-					<span>classe</span>
-				</span>
-			</div>
-			<div class="definition">Ajoute la <var>classe</var> donnée à <var>element</var> si elle n'y est pas (sinon, retire la <var>classe</var>).</div>
-		</li>
-		<li data-n="0">
-			<div class="terme">
-				<span class="prefixe">element.</span>
-				<span class="keyword">classList.contains</span>
-				<span class="parametres">
-					<span>classe</span>
-					<!-- <span>etat</span> -->
-				</span>
-			</div>
-			<div class="definition">Indique si la <var>classe</var> est appliquée à <var>element</var>.</div>
-		</li>
-		<!-- li[data-n=0]>(div.terme>span.prefixe+span.keyword+(span.parametres>span))+div.definition -->
 	</ul>
 	
 </body>
