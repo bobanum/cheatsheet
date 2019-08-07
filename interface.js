@@ -73,6 +73,8 @@ class Interface {
 	static dom_icone(id) {
 		var resultat = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 		resultat.setAttribute("viewBox", "0 0 256 256");
+		resultat.setAttribute("width", "32");
+		resultat.setAttribute("height", "32");
 		var use = resultat.appendChild(document.createElementNS("http://www.w3.org/2000/svg", "use"));
 		use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "images/niveaux.svg#" + id);
 		return resultat;

@@ -1,83 +1,186 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<script src="interface.js"></script>
 	<title>Document</title>
 </head>
+
 <body>
 	<h1>Javascript</h1>
-	<h2></h2>
-<ul class="sections">
-	<li>
-		<h2>Types de données</h2>
-		<ul class="definitions">
-			<li data-n="0">
-				<div class="terme">
-				<span class="keyword">Number</span>
-				<span class="traduction">Nombre</span>
-				</div>
-				<div class="definition"></div>
-				<sample class="exemples"><span>123</span> <span>12.34</span> <span>-8</span></sample>
-			</li>
-			<li data-n="0">
-				<div class="terme">
-				<span class="keyword">String</span>
-				<span class="traduction">Chaîne de caractères</span>
-				</div>
-				<div class="definition"></div>
-				<sample class="exemples"><span>"Ma chaîne"</span><span>'Ma chaîne'</span></sample>
-			</li>
-			<li data-n="0">
-				<div class="terme">
-				<span class="keyword">Boolean</span>
-				<span class="traduction">Booléen</span>
-				</div>
-				<div class="definition"></div>
-				<sample class="exemples"><span>true</span><span>false</span></sample>
-			</li>
-			<li data-n="1">
-				<div class="terme">
-				<span class="keyword">Object</span>
-				<span class="traduction">Objet</span>
-				</div>
-				<div class="definition"></div>
-				<sample class="exemples"><span>{cle1: valeur1, cle2: valeur2}</span></sample>
-			</li>
-			<li data-n="0">
-				<div class="terme">
-				<span class="keyword">Array</span>
-				<span class="traduction">Tableau</span>
-				</div>
-				<div class="definition"></div>
-				<sample class="exemples"><span>[1, 2, true, "ici"]</span></sample>
-			</li>
-			<li data-n="1">
-				<div class="terme">
-				<span class="keyword">Function</span>
-				<span class="traduction">Fonction</span>
-				</div>
-				<div class="definition"></div>
-				<sample class="exemples"><span>function (param) {}</span><span>(param) =&gt; {}</span></sample>
-			</li>
-			<li data-n="2">
-				<div class="terme">
-				<span class="keyword">Symbol</span>
-				<span class="traduction">Symbole</span>
-				</div>
-				<div class="definition"></div>
-				<sample class="exemples"><span>Symbole('reference')</span></sample>
-			</li>
-		</ul>
-	</li>
-</ul>
-
-<!--
+	<h2>Définitions</h2>
+	<ul>
+		<li><dfn>déclaration</dfn> : Annonce de l'utilisation éventuelle d'une variable. Utilise le mot-clé var.</li>
+		<li><dfn>initialisation</dfn> : Attribution de la valeur initiale d'une variable. Est habituellement jumelée à la déclaration.</li>
+		<li><dfn>expression</dfn> : Portion de code pouvant être évaluée (avoir une valeur). On peut donc également déterminer son type de donnée.</li>
+		<li><dfn>instruction</dfn> : Étape individuelle d'exécution du programme. Se termine par un point-virgule. Pour être utile, une instruction doit modifier une variable ou occasionner un affichage.</li>
+		<li><dfn>condition</dfn> : Expression pouvant être évaluée à true ou false.</li>
+		<li><dfn>identificateur</dfn> : Mot unique désignant une variable, constante ou fonction.</li>
+	</ul>
+	<ul class="sections">
+		<li>
+			<h2>Types de données</h2>
+			<ul class="definitions">
+				<li data-n="0">
+					<div class="terme">
+						<span class="keyword">Number</span>
+					</div>
+					<span class="definition">Nombre</span>
+					<sample class="exemples"><span>123</span> <span>12.34</span> <span>-8</span></sample>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="keyword">String</span>
+					</div>
+					<span class="definition">Chaîne de caractères</span>
+					<sample class="exemples"><span>"Ma chaîne"</span><span>'Ma chaîne'</span></sample>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="keyword">Boolean</span>
+					</div>
+					<span class="definition">Booléen</span>
+					<sample class="exemples"><span>true</span><span>false</span></sample>
+				</li>
+				<li data-n="1">
+					<div class="terme">
+						<span class="keyword">Object</span>
+					</div>
+					<span class="definition">Objet</span>
+					<sample class="exemples"><span>{cle1: valeur1, cle2: valeur2}</span></sample>
+				</li>
+				<li data-n="0">
+					<div class="terme">
+						<span class="keyword">Array</span>
+					</div>
+					<span class="definition">Tableau</span>
+					<sample class="exemples"><span>[1, 2, true, "ici"]</span></sample>
+				</li>
+				<li data-n="1">
+					<div class="terme">
+						<span class="keyword">Function</span>
+					</div>
+					<span class="definition">Fonction</span>
+					<sample class="exemples"><span>function (param) {}</span><span>(param) =&gt; {}</span></sample>
+				</li>
+				<li data-n="2">
+					<div class="terme">
+						<span class="keyword">Symbol</span>
+					</div>
+					<span class="definition">Symbole</span>
+					<sample class="exemples"><span>Symbole('reference')</span></sample>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Les identificateurs</h2>
+	<ul class="sections">
+		<li>Servent à identifier une variable, une constante, une fonction ou une classe d'objet</li>
+		<li>
+			<h3>Règles</h3>
+			<ul>
+				<li>Noms significatifs</li>
+				<li>Pas d'espaces ni d'accents</li>
+				<li>Lettres minuscules, lettre majuscules, chiffres, caractère de soulignement ( _ )</li>
+				<li>Ne doit pas commencer par un chiffre</li>
+				<li>Ne doit pas être un mot réservé</li>
+				<li>
+					Peut contenir plusieurs mots :
+					<ul>
+						<li>Séparés par un soulignement (<cite>snake_case</cite>)</li>
+						<li>Distingués par une majuscule initiale (<cite>camelCase</cite>)</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Conventions</h3>
+			<ul>
+				<li><strong>Minuscule initiale</strong>: variable. <sample><span>age</span><span>couleur_cheveux</span><span>couleurYeux</span></sample>
+				</li>
+				<li><strong>Majuscule initiale</strong>: classe d'objet. <sample><span>Date</span></sample>
+				</li>
+				<li><strong>Pleines majuscules</strong>: constante. <sample><span>PI</span></sample>
+				</li>
+				<li data-n="1"><strong>Soulignement initial</strong>: propriété privée. <sample><span>_x</span></sample>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<h2>Opérateurs</h2>
+	<ul>
+		<li>
+			<h3>Règles générales</h3>
+			<ul>
+				<li>Deux expressions ne peuvent jamais être directement juxtaposées. Un opérateur doit s'interpose entre ces deux expressions pour en donner une troisième. Une opération peut donc également être évaluée.</li>
+				<li>Syntaxe : expression opérateur expression</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Opérateurs mathématiques</h3>
+			<ul>
+				<li><code>+</code> addition, <code>-</code> soustraction</li>
+				<li><code>*</code> multiplication, <code>/</code> division, <code>%</code> modulo</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Opérateurs de comparaison</h3>
+			<ul>
+				<li><code>&lt;</code> plus petit, <code>&lt;=</code> plus petit ou égal</li>
+				<li><code>&gt;</code> plus grand, <code>&gt;=</code> plus grand ou égal</li>
+				<li><code>==</code> égal, <code>===</code> strictement égal</li>
+				<li><code>!=</code> différent, <code>!==</code> strictement différent</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Opérateur de chaine</h3>
+			<ul>
+				<li>+ concaténation</li>
+			</ul>
+		</li>
+		<li data-n="2">
+			<h3>Opérateurs booléens et de bits</h3>
+			<ul>
+				<li>&amp;&amp; ET logique, || OU logique</li>
+				<li>&amp; ET binaire, | OU binaire, ^ OU exclusif binaire</li>
+				<li>&lt;&lt; décalage gauche, &gt;&gt; décalage droite</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Opérateurs d'attribution</h3>
+			<ul>
+				<li>Syntaxe: variable opérateur expression</li>
+				<li><code>=</code> Attribution. Met la valeur de l'expression dans la variable.</li>
+				<li><code>+=</code> Accumulation. Ajoute à la valeur actuelle de la variable celle de l'expression.</li>
+				<li>Les opérateurs <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code> ont un fonctionnement similaire.</li>
+				<li data-n="2">Les opérateurs <code>&amp;=</code>, <code>|=</code>, <code>~=</code>,<code> &lt;&lt;=</code>, <code>&gt;&gt;=</code> sont également possibles.</li>
+				<li><code>++</code><var>variable</var>, <var>variable</var><code>++</code> pré et post incrémentation</li>
+				<li><code>--</code><var>variable</var>, <var>variable</var><code>--</code> pré et post décrémentation</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Opérateurs unitaires</h3>
+			<ul>
+				<li>Syntaxe: opérateur expression</li>
+				<li><code>+</code> positif</li>
+				<li><code>-</code> négatif. Inverse le signe</li>
+				<li><code>!</code> négation. Inverse la valeur booléenne.</li>
+				<li data-n="2"><code>~</code> inversion de bits</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Opérateur ternaire</h3>
+			<ul>
+				<li>Syntaxe: (<var>condition</var>) <code>?</code> <var>valeur_si_true</var> <code>:</code> <var>valeur_si_false</var></li>
+			</ul>
+		</li>
+	</ul>
+	<!--
 ul.sections>li>h2{Section}+ul.commandes>li[data-n=0]>(div.terme>span.prefixe+span.keyword+(span.parametres>span))+div.definition+div.exemple>a>{Exemple dans "Github"}
 -->
-	<p>Cette page présente la syntaxe générale du Javascript. Elle sera fonctionnelle sous peu.</p>
-	<p>En construction...</p>
 </body>
+
 </html>

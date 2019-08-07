@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,200i,400,400i,700,700i,900,900i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700&display=swap');
+/*
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,200i,400,400i,600,600i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:400,400i,700,700i&display=swap');
+*/
+@import url('fira_sans.css');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700&display=swap');
 
 :root {
 	font-size: 2vw;
@@ -21,9 +25,17 @@ body {
 }
 
 code {
-	font-family: 'Nanum Gothic Coding', monospace;
+	color: hsl(120, 30%, 50%);
+	font-family: 'Ubuntu Mono', monospace;
 }
-
+var {
+	color: orangered;
+	font-family: serif;
+	font-stretch: condensed;
+}
+dfn {
+	font-weight: 600;
+}
 div.interface {
 	min-height: 100%;
 	display: flex;
@@ -127,6 +139,20 @@ header {
 		font-weight: 900;
 	}
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	& + ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+}
+
+
 ul.glossaire {
 	margin: 0;
 }
@@ -193,10 +219,6 @@ ul.commandes {
 			content: ", ";
 		}
 	}
-
-	var {
-		color: orangered;
-	}
 }
 ul.definitions {
 	margin: 0;
@@ -205,29 +227,31 @@ ul.definitions {
 	display: grid;
 	grid-gap: 0 1em;
 	align-items: center;
-	grid-template-columns: min-content min-content 1fr auto;
+	grid-template-columns: auto auto auto;
 	.terme {
 		display: contents;
-	}
-	sample.exemples {
-		grid-column: 4;
-		display: flex;
-		flex-wrap: wrap;
-		font-size: smaller;
-		font-family: 'Nanum Gothic Coding', monospace;
-		span {
-			white-space: nowrap;
-			padding: .1em .5em;
-			border-radius: .3em;
-			margin: .1em;
-			background-color: var(--couleur-highlight);
-		}
-
-//		flex-direction: column;
 	}
 	li {
 		display: contents;
 	}
+	sample.exemples {
+		grid-column: 4;
+	}
+}
+sample {
+	display: inline-flex;
+	flex-wrap: wrap;
+	font-size: smaller;
+	font-family: 'Ubuntu Mono', monospace;
+	span {
+		white-space: nowrap;
+		padding: .1em .5em;
+		border-radius: .3em;
+		margin: .1em;
+		background-color: var(--couleur-highlight);
+	}
+
+//		flex-direction: column;
 }
 .exemple {
 	display: flex;
