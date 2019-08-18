@@ -53,20 +53,26 @@ class Interface {
 	static dom_options() {
 		var resultat, option;
 		resultat = document.createElement("div");
+		resultat.classList.add("menu-reactif");
 		resultat.classList.add("options");
+		resultat.setAttribute("tabindex", "0");
+		var trigger = resultat.appendChild(document.createElement("span"));
+		trigger.classList.add("trigger");
+		trigger.appendChild(this.dom_icone("options"));
+		var liste = resultat.appendChild(document.createElement("ul"));
 
-//		option = resultat.appendChild(this.dom_option_range("importance", "Importance", "0", "3"));
-		option = resultat.appendChild(this.dom_option_checkbox("fondamental", "Fondamental", true));
+//		option = liste.appendChild(this.dom_option_range("importance", "Importance", "0", "3"));
+		option = liste.appendChild(this.dom_option_checkbox("fondamental", "Fondamental", true));
 		option.appendChild(this.dom_icone("fondamental"));
-		option = resultat.appendChild(this.dom_option_checkbox("intermediaire", "Intermédiaire"));
+		option = liste.appendChild(this.dom_option_checkbox("intermediaire", "Intermédiaire"));
 		option.appendChild(this.dom_icone("intermediaire"));
-		option = resultat.appendChild(this.dom_option_checkbox("avance", "Avancé"));
+		option = liste.appendChild(this.dom_option_checkbox("avance", "Avancé"));
 		option.appendChild(this.dom_icone("avance"));
-		option = resultat.appendChild(this.dom_option_checkbox("afficher-exemples", "Exemples", true));
+		option = liste.appendChild(this.dom_option_checkbox("afficher-exemples", "Exemples", true));
 		option.appendChild(this.dom_icone("exemples"));
-		option = resultat.appendChild(this.dom_option_checkbox("concis", "Concis"));
+		option = liste.appendChild(this.dom_option_checkbox("concis", "Concis"));
 		option.appendChild(this.dom_icone("concis"));
-		option = resultat.appendChild(this.dom_option_checkbox("compact", "Compact"));
+		option = liste.appendChild(this.dom_option_checkbox("compact", "Compact"));
 		option.appendChild(this.dom_icone("compact"));
 		return resultat;
 	}
@@ -76,15 +82,15 @@ class Interface {
 		resultat.setAttribute("width", "32");
 		resultat.setAttribute("height", "32");
 		var use = resultat.appendChild(document.createElementNS("http://www.w3.org/2000/svg", "use"));
-		use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "images/niveaux.svg#" + id);
+		use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "images/icones.svg#" + id);
 		return resultat;
 	}
 	static dom_option_checkbox(id, etiquette, defaut = false) {
 		var resultat;
-		resultat = document.createElement("span");
+		resultat = document.createElement("li");
 		window.localStorage[id] = window.localStorage[id] || defaut;
 		document.documentElement.classList.toggle(id, window.localStorage[id] === "true");
-		this.style.addRule(":root."+id+" span.for-"+id+"::before", "background-color: var(--couleur-coche);");
+		this.style.insertRule(":root."+id+" .for-"+id+"::before{background-color: var(--couleur-coche) !important;}");
 		resultat.classList.add("checkbox");
 		resultat.classList.add("for-" + id);
 		resultat.innerHTML = etiquette;
@@ -132,9 +138,11 @@ class Interface {
 	}
 	static dom_nav() {
 		var resultat = document.createElement("nav");
+		resultat.classList.add("menu-reactif");
 		resultat.setAttribute("tabindex", "0");
 		var trigger = resultat.appendChild(document.createElement("span"));
 		trigger.classList.add("trigger");
+		trigger.appendChild(this.dom_icone("menu"));
 		// trigger.innerHTML = "≡";
 		var ul = resultat.appendChild(document.createElement("ul"));
 		
