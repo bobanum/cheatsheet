@@ -4,6 +4,7 @@ class Interface {
 	static load() {
 		
 		document.body.appendChild(this.dom_interface());
+		this.traiterIFrames();
 		this.traiterExemples();
 		var title = document.querySelector("div.interface > header >h1").textContent;
 		title += " – " + document.querySelector("div.body > h1").textContent;
@@ -68,6 +69,9 @@ class Interface {
 		option.appendChild(this.dom_icone("intermediaire"));
 		option = liste.appendChild(this.dom_option_checkbox("avance", "Avancé"));
 		option.appendChild(this.dom_icone("avance"));
+		/* option non fournie par défaut */
+		// option = liste.appendChild(this.dom_option_checkbox("expert", "Expert"));
+		// option.appendChild(this.dom_icone("expert"));
 		option = liste.appendChild(this.dom_option_checkbox("afficher-exemples", "Exemples", true));
 		option.appendChild(this.dom_icone("exemples"));
 		option = liste.appendChild(this.dom_option_checkbox("concis", "Concis"));
@@ -190,6 +194,23 @@ class Interface {
 			Prism.highlightAll();
 		});
 	}
+	static traiterIFrames() {
+		var iframes = Array.from(document.querySelectorAll("iframe.code"));
+		iframes.forEach(iframe => {
+			var txt = iframe.textContent.trim();
+			var debutJunk = txt.indexOf("<!-- Code");
+			if (debutJunk >= 0) {
+				var finJunk = txt.indexOf("</script></body>");
+				txt = txt.substr(0, debutJunk) + txt.substr(finJunk + 9);
+			}
+			var langage = iframe.getAttribute("data-langage") || "javascript";
+			var noLines = (iframe.classList.contains("no-nos")) ? false : 1;
+			var exemple = this.dom_exemple(txt, noLines, langage);
+			iframe.parentNode.replaceChild(exemple, iframe);
+			// iframe.parentNode.insertBefore(exemple, iframe);
+			// iframe.setAttribute("src", "data:text/html;base64," + btoa(txt));
+		});
+	}
 	static traiterExemple(a) {
 		return new Promise(resolve => {
 			var href = a.getAttribute("href");
@@ -223,17 +244,22 @@ class Interface {
 			});
 		});
 	}
-	static dom_exemple(data, start=1) {
+	static dom_exemple(data, start=1, language="javascript") {
+		if (typeof data === "string") {
+			data = data.split(/\r\n|\n\r|\n|\r/);
+		}
 		while(data.findIndex(d => d[0] !== "\t") === -1) {
 			data = data.map(d => d.substr(1));
 		}
 		var resultat = document.createElement("pre");
-		resultat.setAttribute("data-start", start);
-		resultat.classList.add("language-javascript");
-		resultat.classList.add("line-numbers");
+		resultat.classList.add("language-" + language);
 		var code = resultat.appendChild(document.createElement("code"));
-		code.classList.add("language-javascript");
-		code.classList.add("line-numbers");
+		code.classList.add("language-" + language);
+		if (start !== false) {
+			resultat.setAttribute("data-start", start);
+			resultat.classList.add("line-numbers");
+			code.classList.add("line-numbers");
+		}
 		code.textContent = data.join("\n");
 		return resultat;
 	}

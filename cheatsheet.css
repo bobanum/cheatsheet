@@ -29,6 +29,9 @@ var {
   font-family: serif;
   font-stretch: condensed;
 }
+samp {
+  color: orangered;
+}
 dfn {
   font-weight: 600;
 }
@@ -215,6 +218,9 @@ ul.commandes .terme {
   padding-bottom: .2em;
   margin-bottom: .2em;
 }
+ul.commandes.html .terme {
+  justify-content: space-between;
+}
 ul.commandes .keyword {
   font-weight: bold;
 }
@@ -387,6 +393,10 @@ sample span {
   display: none;
 }
 :root:not(.avance) *[data-n="2"] {
+  display: none;
+}
+/*Option non fournie par défaut*/
+:root:not(.expert) *[data-n="3"] {
   display: none;
 }
 @media all and (max-aspect-ratio: 1 / 1) {

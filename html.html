@@ -11,6 +11,144 @@
 	<h1>Balises HTML</h1>
 	<p>Cette page présente les balises HTML et les attributs qui leur sont associés.</p>
 	<p>En construction...</p>
-	<p>La plupart des balises ont été vues dans un cours précédent. Cette page sera principalement consacrés aux formulaires.</p>
+	<h2>Structure d'une page Web</h2>
+
+	<iframe class="code no-nos" frameborder="0" data-langage="html">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8"/>
+	<title>TITRE DU DOCUMENT</title>
+</head>
+<body>
+	<!-- Commentaire -->
+	<p>VOTRE_TEXTE</p>
+</body>
+</html>
+	</iframe>
+	<h2>Texte courant</h2>
+	<ul class="commandes html">
+		<li data-n="0">
+			<div class="terme">Titres <samp>h1, h2, ..., h6</samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<h1>Titre de la page</h1>
+<h2>Titre de 2e niveau</h2>
+...
+<h6>Titre de 6e niveau</h6>
+			</iframe></div>
+		</li>
+		<li data-n="0">
+			<div class="terme">Paragraphe <samp>p</samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html"><p>Un certain nombre de phrases portant sur le même sujet.</p></iframe></div>
+		</li>
+		<li data-n="0">
+			<div class="terme">Emphase simple et forte <samp>em, strong</samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<p><strong>Attention</strong>, le texte est protégé par un
+<em lang="en">copyright</em>.</p>
+			</iframe></div>
+			
+		</li>
+		<li data-n="1">
+			<div class="terme">Retour de ligne <samp>br</samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<p>Les programmes de Windows se trouvent dans : <br />
+<code>C:\Program files</code></p></iframe></div>
+		</li>
+		<li data-n="1">
+			<div class="terme">Abréviation <samp>abbr</samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html"><p>La <abbr title="Société nationale des chemins de fer">SNCF</abbr> existe depuis 1938.</p></iframe></div>
+		</li>
+		<li data-n="1">
+			<div class="terme">Indice et exposant <samp>sub, sup</samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html"><p>Le 2<sup>e</sup> élément de l'H<sub>2</sub>O est l'oxygène.</p></iframe></div>
+		</li>
+		<li data-n="1">
+			<div class="terme">Définition d'un terme <samp>dfn</samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html"><p>L'<dfn>eau</dfn> est un composé chimique, très courant sur le Terre, [...]</p></iframe></div>
+		</li>
+		<li data-n="2">
+			<div class="terme">Orientation du texte <samp>bdo</samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html"><p dir="ltr">Il a dit : <q><bdo dir="rtl">السلام عليكم</bdo> (<em>Was-salaam alaykum</em>)</q>.</p></iframe></div>
+		</li>
+	</ul>
+	<h2>Citations et références</h2>
+	<ul class="commandes html">
+			<li data-n="1">
+				<div class="terme">Citations longues<samp>blockquote</samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<blockquote cite="http://abu.cnam.fr/">
+<p>Une embuscade était probable.</p>
+<p>Trente grenadiers, détachés en éclaireurs et commandés par un sergent, marchaient [...]</p>
+<cite>Victor HUGO, Quatre-vingt Treize.</cite>
+</blockquote>
+					</iframe></div>
+			</li>
+			<li data-n="1">
+				<div class="terme">Citation courtes<samp>q</samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<p>Il dit : <q>Fermez la porte !</q></p>
+					</iframe></div>
+			</li>
+			<li data-n="0">
+				<div class="terme">Référence à un document<samp>cite</samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<p>C'est V. Hugo qui a écrit <cite>Ruy Blas</cite>.</p>
+					</iframe></div>
+			</li>
+			<li data-n="1">
+				<div class="terme">Auteur de la page Web<samp>address</samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<address> Albert Dupont
+<em>Journaliste, spécialiste Web 2.0</em>
+<a href="mailto:adupont@monjournal.com"> adupont@monjournal.com</a>
+</address>
+					</iframe></div>
+			</li>
+	</ul>
+	<h2>Texte technique</h2>
+	<ul class="commandes html">
+			<li data-n="0">
+				<div class="terme">Texte préformaté<samp>pre</samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<pre>
+$a = "fr_FR"; setlocale(LC_ALL, $a);
+date_default_timezone_set('Europe/Paris');
+</pre>
+					</iframe></div>
+			</li>
+			<li data-n="1">
+				<div class="terme">Code source et variable<samp>code, var</samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<p>La commande <code>$a="fr_FR"</code> permet d'affecter une valeur à la variable <var>$a</var>.</p>
+					</iframe></div>
+			</li>
+			<li data-n="2">
+				<div class="terme">Commandes<samp>kbd, samp</samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+<p>Si vous tapez la commande <kbd>del mydir</kbd>, le programme répondra <samp>C:\mydir\*, êtes-vous sûr
+(O/N) ?</samp>. Répondez : <kbd>N</kbd>.</p>
+					</iframe></div>
+			</li>
+	</ul>
+	<h2>Citations et références</h2>
+	<ul class="commandes html">
+			<li data-n="0">
+				<div class="terme"><samp></samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+						<p>exemple</p>
+					</iframe></div>
+			</li>
+			<li data-n="1">
+				<div class="terme"><samp></samp></div>
+				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+						<p>exemple</p>
+					</iframe></div>
+			</li>
+		<!-- 
+			li[data-n=0]>(div.terme>samp)+div.exemple>iframe.code.no-nos[frameborder=0][data-langage=html]>p{exemple}
+		 -->
+		
+	</ul>
 </body>
 </html>
