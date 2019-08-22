@@ -41,6 +41,9 @@ samp {
 dfn {
 	font-weight: 600;
 }
+h2 {
+	border-bottom: 1px solid black;
+}
 div.interface {
 	min-height: 100%;
 	display: flex;
@@ -191,6 +194,14 @@ header {
 		}
 	}
 }
+.bloccode {
+	border: 1px solid black;
+	font-family: monospace;
+	padding: 0.5em;
+	& > div {
+		white-space: pre;
+	}
+}
 svg.indicateur {
 	width: 1em;
 	height: 1em;
@@ -203,18 +214,21 @@ svg.indicateur {
 	padding: 1em;
 
 	h1 {
-		font-size: 1.5em;
+		font-size: 1.6em;
 		margin: 0;
 		color: var(--couleur-principale);
 		font-weight: 900;
 	}
 	h2 {
-		font-size: 1.2em;
+		font-size: 1.3em;
 		margin: 0;
 		margin-top: 1em;
 		margin-bottom: .5em;
 		color: var(--couleur-principale);
 		font-weight: 900;
+	}
+	h3 {
+		font-size: 1.1em;
 	}
 }
 h1,
@@ -223,13 +237,27 @@ h3,
 h4,
 h5,
 h6 {
+	margin-bottom: 0;
 	& + ul {
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
 	}
 }
+ul.syntaxes {
+	& > li {
+		& > h3 {
+			grid-column: span 2;
+		}
+		
+	}
+	
+}
+div.colonnes {
+	display:grid; 
+	grid-template-columns: minmax(min-content, auto) minmax(min-content, 1fr);
 
+}
 
 ul.glossaire {
 	margin: 0;
@@ -310,11 +338,11 @@ ul.definitions {
 	li {
 		display: contents;
 	}
-	sample.exemples {
+	samp.exemples {
 		grid-column: 4;
 	}
 }
-sample {
+samp {
 	display: inline-flex;
 	flex-wrap: wrap;
 	font-size: smaller;
