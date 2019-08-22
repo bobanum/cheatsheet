@@ -2,10 +2,10 @@
 /*globals Prism*/
 class Interface {
 	static load() {
-		
 		document.body.appendChild(this.dom_interface());
 		this.traiterIFrames();
 		this.traiterExemples();
+		// this.ajouterNiveaux();
 		var title = document.querySelector("div.interface > header >h1").textContent;
 		title += " – " + document.querySelector("div.body > h1").textContent;
 		document.title =  title;
@@ -25,6 +25,17 @@ class Interface {
 		document.currentScript.parentNode.insertBefore(this.dom_link("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/plugins/line-numbers/prism-line-numbers.css"), document.currentScript);
 		document.currentScript.parentNode.insertBefore(this.dom_script("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.js"), document.currentScript);
 		document.currentScript.parentNode.insertBefore(this.dom_script("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/plugins/line-numbers/prism-line-numbers.js"), document.currentScript);
+	}
+	static ajouterNiveaux() {
+		var elements = document.querySelectorAll("[data-n]");
+		var niveaux = Object.keys(this.niveaux);
+		elements.forEach(element => {
+			var n = element.getAttribute("data-n");
+			n = niveaux[n];
+			var icone = element.insertBefore(this.dom_icone(n), element.firstChild);
+			icone.classList.add("indicateur");
+			icone.setAttribute("title", this.niveaux[n]);
+		});
 	}
 	static dom_style() {
 		var resultat = document.createElement("style");
@@ -63,15 +74,10 @@ class Interface {
 		var liste = resultat.appendChild(document.createElement("ul"));
 
 //		option = liste.appendChild(this.dom_option_range("importance", "Importance", "0", "3"));
-		option = liste.appendChild(this.dom_option_checkbox("fondamental", "Fondamental", true));
-		option.appendChild(this.dom_icone("fondamental"));
-		option = liste.appendChild(this.dom_option_checkbox("intermediaire", "Intermédiaire"));
-		option.appendChild(this.dom_icone("intermediaire"));
-		option = liste.appendChild(this.dom_option_checkbox("avance", "Avancé"));
-		option.appendChild(this.dom_icone("avance"));
-		/* option non fournie par défaut */
-		// option = liste.appendChild(this.dom_option_checkbox("expert", "Expert"));
-		// option.appendChild(this.dom_icone("expert"));
+		for (let k in this.niveaux) {
+			option = liste.appendChild(this.dom_option_checkbox(k, this.niveaux[k], true));
+			option.appendChild(this.dom_icone(k));
+		}
 		option = liste.appendChild(this.dom_option_checkbox("afficher-exemples", "Exemples", true));
 		option.appendChild(this.dom_icone("exemples"));
 		option = liste.appendChild(this.dom_option_checkbox("concis", "Concis"));
@@ -83,8 +89,8 @@ class Interface {
 	static dom_icone(id) {
 		var resultat = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 		resultat.setAttribute("viewBox", "0 0 256 256");
-		resultat.setAttribute("width", "32");
-		resultat.setAttribute("height", "32");
+		// resultat.setAttribute("width", "32");
+		// resultat.setAttribute("height", "32");
 		var use = resultat.appendChild(document.createElementNS("http://www.w3.org/2000/svg", "use"));
 		use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "images/icones.svg#" + id);
 		return resultat;
@@ -278,6 +284,16 @@ class Interface {
 		});
 	}
 	static init() {
+		this.niveaux = {
+			"fondamental": "Fondamental",
+			"intermediaire": "intermédiaire",
+			"avance": "Avancé",
+			/* option non fournie par défaut */
+			// "expert": "Expert",
+		};
+		if (window.location.search.match(/[?&]n=3/)) {
+			this.niveaux.expert = "Expert";
+		}
 		this.exemples = {};
 		this.ajouterStyle();
 		this.ajouterPrism();

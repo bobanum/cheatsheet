@@ -191,6 +191,13 @@ header {
 		}
 	}
 }
+svg.indicateur {
+	width: 1em;
+	height: 1em;
+	fill: rgba(0,0,0,.3);
+	position: absolute;
+	margin-left: -1em;
+}
 
 .body {
 	padding: 1em;
@@ -460,6 +467,16 @@ sample {
 :root:not(.expert) {
 	*[data-n="3"] {
 		display: none;
+	}
+}
+
+@media all and (min-width: 1024px) {
+	:root {
+		font-size: 16px;
+	}
+	.interface {
+		width: 48em;
+		margin: 0 auto;
 	}
 }
 

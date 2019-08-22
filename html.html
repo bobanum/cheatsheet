@@ -126,25 +126,82 @@ date_default_timezone_set('Europe/Paris');
 			<li data-n="2">
 				<div class="terme">Commandes<samp>kbd, samp</samp></div>
 				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
-<p>Si vous tapez la commande <kbd>del mydir</kbd>, le programme répondra <samp>C:\mydir\*, êtes-vous sûr
-(O/N) ?</samp>. Répondez : <kbd>N</kbd>.</p>
+<p>Si vous tapez la commande <kbd>del mydir</kbd>, le programme répondra <samp>C:\mydir\*, 
+êtes-vous sûr (O/N) ?</samp>. Répondez : <kbd>N</kbd>.</p>
 					</iframe></div>
 			</li>
 	</ul>
+	<h2>Entête</h2>
+	<ul class="commandes html">
+		<li data-n="0">
+			<div class="terme"><samp></samp></div>
+			<div><iframe frameborder="0" class="code no-nos" data-langage="html"><head>
+	<!-- DESCRIPTION DU DOCUMENT -->
+	<title>Titre du document</title>
+	<meta charset="utf-8" />
+	<meta name="author" content="Albert Dupont" />
+	<meta name="description" content="Desc. du document (150 car. max.)" />
+	<meta name="date" content="2008-12-31T05:00:00+01:00">
+	<!-- ICONE DE FAVORIS -->
+	<link rel="favicon" type="image/x-icon" href="favicon.ico" />
+	<!-- FEUILLES DE STYLES CSS -->
+	<link rel="stylesheet" media="all" href="style.css" />
+	<style>
+		/* Placez ici les règles CSS */
+	</style>
+	<!-- JAVASCRIPT -->
+	<script src="script.js" language="javascript"></script>
+	<script>
+		/* Placez ici le code Javascript */
+	</script>
+</head></iframe></div>
+		</li>
+	</ul>
+	<h2>Attributs universels</h2>
+	<ul class="commandes html">
+		<li data-n="1">
+			<div class="terme">Direction du texte<samp>dir</samp></div>
+		</li>
+		<li data-n="1">
+			<div class="terme">Langage<samp>lang</samp></div>
+		</li>
+		<li data-n="0">
+			<div class="terme">Propriétés CSS<samp>style</samp></div>
+		</li>
+		<li data-n="0">
+			<div class="terme">Identifiant<samp>id</samp></div>
+		</li>
+		<li data-n="0">
+			<div class="terme">Classe<samp>class</samp></div>
+		</li>
+		<li data-n="1">
+			<div class="terme">Ordre de focus<samp>tabindex</samp></div>
+		</li>
+		<li data-n="1">
+			<div class="terme">Touche de raccourci<samp>accesskey</samp></div>
+		</li>
+		<li data-n="0">
+			<div class="terme">Titre<samp>title</samp></div>
+		</li>
+		<li data-n="0">
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+					<p>exemple</p>
+				</iframe></div>
+		</li>
 	<h2>Citations et références</h2>
 	<ul class="commandes html">
-			<li data-n="0">
-				<div class="terme"><samp></samp></div>
-				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
-						<p>exemple</p>
-					</iframe></div>
-			</li>
-			<li data-n="1">
-				<div class="terme"><samp></samp></div>
-				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
-						<p>exemple</p>
-					</iframe></div>
-			</li>
+		<li data-n="0">
+			<div class="terme"><samp></samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+					<p>exemple</p>
+				</iframe></div>
+		</li>
+		<li data-n="1">
+			<div class="terme"><samp></samp></div>
+			<div class="exemple"><iframe frameborder="0" class="code no-nos" data-langage="html">
+					<p>exemple</p>
+				</iframe></div>
+		</li>
 		<!-- 
 			li[data-n=0]>(div.terme>samp)+div.exemple>iframe.code.no-nos[frameborder=0][data-langage=html]>p{exemple}
 		 -->
