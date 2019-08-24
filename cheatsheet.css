@@ -8,6 +8,7 @@
   font-size: 2vw;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-family: 'Fira Sans', sans-serif;
+  --font-code: 'Ubuntu Mono', monospace;
   --couleur-principale: #456;
   --couleur-secondaire: #789;
   --couleur-coche: #456;
@@ -22,7 +23,7 @@ body {
 }
 code {
   color: #59a659;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: var(--font-code);
 }
 var {
   color: orangered;
@@ -292,22 +293,25 @@ ul.definitions {
   display: grid;
   grid-gap: 0 1em;
   align-items: center;
-  grid-template-columns: auto auto auto;
-}
-ul.definitions .terme {
-  display: contents;
+  grid-auto-columns: max-content;
 }
 ul.definitions li {
   display: contents;
 }
+ul.definitions dfn {
+  grid-column: 1;
+}
+ul.definitions span.definition {
+  grid-column: 2;
+}
 ul.definitions samp.exemples {
-  grid-column: 4;
+  grid-column: 3;
 }
 samp {
   display: inline-flex;
   flex-wrap: wrap;
   font-size: smaller;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: var(--font-code);
 }
 samp span {
   white-space: nowrap;
