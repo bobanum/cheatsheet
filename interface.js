@@ -2,7 +2,7 @@
 /*globals Prism*/
 class Interface {
 	static load() {
-		document.body.appendChild(this.dom_interface());
+		this.interface = document.body.appendChild(this.dom_interface());
 		this.traiterIFrames();
 		this.traiterExemples();
 		// this.ajouterNiveaux();
@@ -37,6 +37,52 @@ class Interface {
 			icone.setAttribute("title", this.niveaux[n]);
 		});
 	}
+	static dom_sommaire() {
+		var titres = Array.from(document.querySelectorAll("h2"));
+		if (!titres) {
+			return;
+		}
+		var resultat = document.createElement("nav");
+		resultat.classList.add("menu-reactif");
+		var ul = resultat.appendChild(document.createElement("ul"));
+		resultat.classList.add("sommaire");
+		titres.forEach(titre => {
+			var id = titre.getAttribute("id") || titre.parentNode.getAttribute("id");
+			var texte = titre.textContent;
+			if (!id) {
+				id = this.normaliserID(texte);
+				titre.setAttribute("id", id);
+			}
+			var li = ul.appendChild(document.createElement("li"));
+			var a = li.appendChild(document.createElement("a"));
+			a.setAttribute("href", "#" + id);
+			a.textContent = titre.textContent;
+		});
+		return resultat;
+	}
+	static normaliserID(str, prefixe) {
+		var resultat = str
+			.toLowerCase()
+			.replace(/[áàâä]/g, "a")
+			.replace(/[éèêë]/g, "e")
+			.replace(/[íìîï]/g, "i")
+			.replace(/[óòôö]/g, "o")
+			.replace(/[úùûü]/g, "u")
+			.replace(/[ýÿ]/g, "y")
+			.replace(/[ç]/g, "c")
+			.replace(/[^a-z0-9]+/g, "_");
+		if (prefixe) {
+			resultat = prefixe + "-" + resultat;
+		}
+		if (!document.getElementById(resultat)) {
+			return resultat;
+		}
+		var no = 1;
+		while (!document.getElementById(resultat + "-" + no)) {
+			no += 1;
+		}
+		return resultat + "-" + no;
+	}
 	static dom_style() {
 		var resultat = document.createElement("style");
 		return resultat;
@@ -58,6 +104,7 @@ class Interface {
 		resultat.appendChild(this.dom_header());
 		resultat.appendChild(this.dom_footer());
 		resultat.appendChild(this.dom_nav());
+		// resultat.appendChild(this.dom_sommaire());
 		resultat.appendChild(this.dom_options());
 		resultat.appendChild(this.dom_body());
 		return resultat;
@@ -148,6 +195,7 @@ class Interface {
 	}
 	static dom_nav() {
 		var resultat = document.createElement("nav");
+		resultat.classList.add("principal");
 		resultat.classList.add("menu-reactif");
 		resultat.setAttribute("tabindex", "0");
 		var trigger = resultat.appendChild(document.createElement("span"));

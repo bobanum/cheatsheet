@@ -67,8 +67,9 @@ div.interface {
 		order: 1000;
 	}
 
-	& > nav {
+	& > .principal {
 		font-size: smaller;
+		order: -1;
 		a {
 			height: 3em;
 			padding: 0 .25em;
@@ -97,6 +98,11 @@ div.interface {
 
 	& > div.body {
 		flex: 1 0 auto;
+	}
+	& > .sommaire > ul {
+		background-color: black;
+		order:-10;
+		color: white;
 	}
 }
 

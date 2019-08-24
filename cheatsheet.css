@@ -58,32 +58,38 @@ div.interface > header {
 div.interface > footer {
   order: 1000;
 }
-div.interface > nav {
+div.interface > .principal {
   font-size: smaller;
+  order: -1;
 }
-div.interface > nav a {
+div.interface > .principal a {
   height: 3em;
   padding: 0 .25em;
 }
-div.interface > nav ul {
+div.interface > .principal ul {
   background-color: var(--couleur-secondaire);
 }
-div.interface > nav ul li.courant {
+div.interface > .principal ul li.courant {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   pointer-events: none;
 }
-div.interface > nav ul li:hover {
+div.interface > .principal ul li:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 @media all and (max-aspect-ratio: 1 / 1) {
-  div.interface > nav a {
+  div.interface > .principal a {
     height: 2em;
     padding: 0 1em;
   }
 }
 div.interface > div.body {
   flex: 1 0 auto;
+}
+div.interface > .sommaire > ul {
+  background-color: black;
+  order: -10;
+  color: white;
 }
 header h1,
 header h2,
