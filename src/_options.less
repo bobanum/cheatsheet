@@ -1,0 +1,53 @@
+@import "_variables.less";
+.options {
+	font-size: .7em;
+	color: var(--couleur-coche);
+	fill: var(--couleur-coche);
+	position: sticky;
+	top:0px;
+	.trigger {
+		right: var(--taille-trigger);
+	}
+	& > ul {
+		background-color: var(--couleur-highlight);
+		justify-content: flex-end;
+		& > li {
+			flex: 0 0 auto;
+			display: flex;
+			align-items: center;
+			padding: 0em 0.5em;
+			cursor: pointer;
+			height: 2em;
+			&:hover {
+				background-color: hsla(0, 0%, 0%, .05);
+			}
+			&.checkbox {
+				&::before {
+					content: "\a0";
+					order: -10;
+					line-height: 2;
+					background-color: white;
+					border-radius: 100%;
+					border: .15em solid white;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					width: 0.7em;
+					height: 0.7em;
+					margin-right: .25em;
+				}
+			}
+		}
+	}
+	svg {
+//		width: 1em;
+		height: 1.5em;
+		order: -1;
+	}
+	@media all and (max-aspect-ratio: @aspect-ratio) {
+		font-size: 1rem;
+		& > ul > li {
+			padding: 0 0.5em;
+		}
+	}
+}

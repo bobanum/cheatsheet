@@ -1,0 +1,34 @@
+.exemple {
+	display: flex;
+	flex-direction: column;
+	pre[class] {
+		font-size: smaller;
+		margin: 0;
+		padding: .25em;
+		border: 1px solid hsl(60, 10%, 80%);
+	}
+	pre + a {
+		font-size: .6em;
+		margin-top: -1em;
+		margin-right: .5em;
+		display: relative;
+		z-index: 1;
+		align-self: flex-end;
+		color: inherit;
+	}
+	code[class*=language-], pre[class*=language-] {
+		line-height: 1.2em;
+	}
+	@media print {
+		& > a {
+			display: none;
+		}	
+	}
+}
+.masquer-exemples {
+	.exemple, .exemples {
+		display:none;
+		visibility: none;
+	}
+}
+

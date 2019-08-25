@@ -180,6 +180,26 @@ header h6 {
 .bloccode > div {
   white-space: pre;
 }
+article > h2 {
+  cursor: pointer;
+}
+@media print {
+  .folded {
+    display: none;
+  }
+}
+.folded > :first-child {
+  opacity: .3;
+}
+.folded > :first-child::before {
+  content: "⋮";
+  content: "…";
+  position: absolute;
+  margin-left: -1em;
+}
+.folded > :first-child ~ * {
+  display: none;
+}
 svg.indicateur {
   width: 1em;
   height: 1em;
@@ -257,7 +277,6 @@ ul.commandes .terme {
   grid-auto-columns: auto;
   justify-content: flex-start;
   align-items: baseline;
-  border-bottom: 1px solid black;
   padding-bottom: .2em;
   margin-bottom: .2em;
 }
@@ -343,10 +362,22 @@ samp span {
 .exemple pre[class*=language-] {
   line-height: 1.2em;
 }
+@media print {
+  .exemple > a {
+    display: none;
+  }
+}
+.masquer-exemples .exemple,
+.masquer-exemples .exemples {
+  display: none;
+  visibility: none;
+}
 .options {
   font-size: .7em;
   color: var(--couleur-coche);
   fill: var(--couleur-coche);
+  position: sticky;
+  top: 0px;
 }
 .options .trigger {
   right: var(--taille-trigger);
@@ -392,14 +423,37 @@ samp span {
     padding: 0 0.5em;
   }
 }
+.balises {
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-gap: .25em 1em;
+}
+.balises > li {
+  display: contents;
+}
+.balises > li > dfn {
+  grid-column: 1;
+}
+.balises > li > dfn > code::before {
+  content: "<";
+}
+.balises > li > dfn > code::after {
+  content: ">";
+}
+.balises > li > .definition {
+  grid-column: 2;
+}
+.balises > li > .exemple {
+  grid-column: span 2;
+  margin-bottom: 1em;
+}
 #importance {
   width: 4em;
 }
-.masquer-exemples .exemple {
+:root:not(.afficher-exemples) .exemple,
+:root:not(.afficher-exemples) .exemples {
   display: none;
-}
-:root:not(.afficher-exemples) .exemple {
-  display: none;
+  visibility: none;
 }
 .concis .prefixe {
   display: none;
@@ -413,11 +467,10 @@ samp span {
 :root.compact .parametres * {
   display: none;
 }
-:root.compact .exemple {
+:root.compact .exemple,
+:root.compact .exemples {
   display: none;
-}
-:root.compact .exemple {
-  display: none;
+  visibility: none;
 }
 :root.compact ul.commandes {
   grid-gap: 0em;
@@ -499,8 +552,5 @@ samp span {
   div.interface > footer {
     background: none;
     color: black;
-  }
-  div.interface .exemple > a {
-    display: none;
   }
 }

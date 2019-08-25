@@ -1,0 +1,82 @@
+:root {
+  font-size: 2vw;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
+  --font-code: 'Ubuntu Mono', monospace;
+  --couleur-principale: #456;
+  --couleur-secondaire: #789;
+  --couleur-coche: #456;
+  --couleur-highlight: #e0e6eb;
+}
+.menu-reactif {
+  --taille-trigger: 2em;
+  line-height: 1;
+}
+.menu-reactif > *.trigger {
+  display: none;
+}
+.menu-reactif a {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.menu-reactif ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.menu-reactif ul li {
+  flex: 1 0 auto;
+}
+@media all and (max-aspect-ratio: 1 / 1) {
+  .menu-reactif {
+    font-size: 1em;
+    background-color: red;
+  }
+  .menu-reactif br {
+    display: none;
+  }
+  .menu-reactif > *.trigger {
+    position: absolute;
+    font-size: 1rem;
+    margin-top: calc(-1*var(--taille-trigger));
+    right: 0;
+    width: var(--taille-trigger);
+    height: var(--taille-trigger);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    fill: white;
+  }
+  .menu-reactif > *.trigger > svg {
+    width: 1em;
+    height: 1em;
+  }
+  .menu-reactif > *.trigger:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .menu-reactif:focus > .trigger {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .menu-reactif:not(:focus-within) > ul {
+    display: none;
+  }
+  .menu-reactif a {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .menu-reactif ul {
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+  }
+  .menu-reactif ul li {
+    flex: 1 0 0;
+  }
+}

@@ -1,0 +1,83 @@
+@import "_variables.less";
+.menu-reactif {
+	--taille-trigger: 2em;
+	line-height: 1;
+
+	& > *.trigger {
+		display: none;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		li {
+			flex: 1 0 auto;
+		}
+	}
+	@media all and (max-aspect-ratio: @aspect-ratio) {
+		font-size: 1em;
+		background-color: red;
+
+		br {
+			display: none;
+		}
+
+		& > *.trigger {
+			position: absolute;
+			font-size: 1rem;
+			margin-top: e('calc(-1*var(--taille-trigger))');
+			right: 0;
+			width: var(--taille-trigger);
+			height: var(--taille-trigger);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			fill: white;
+			& > svg {
+				width: 1em;
+				height: 1em;
+			}
+
+			&:hover {
+				background-color: rgba(255, 255, 255, .2);
+			}
+		}
+
+		&:focus > .trigger {
+			background-color: rgba(255, 255, 255, .5);
+		}
+
+		&:not(:focus-within) > ul {
+			display: none;
+		}
+
+		a {
+			justify-content: flex-start;
+			text-align: left;
+		}
+
+		ul {
+			flex-direction: column;
+			position: absolute;
+			right: 0;
+
+			li {
+				flex: 1 0 0;
+			}
+		}
+	}
+}

@@ -5,6 +5,7 @@ class Interface {
 		this.interface = document.body.appendChild(this.dom_interface());
 		this.traiterIFrames();
 		this.traiterExemples();
+		this.traiterFolding();
 		// this.ajouterNiveaux();
 		var title = document.querySelector("div.interface > header >h1").textContent;
 		title += " – " + document.querySelector("div.body > h1").textContent;
@@ -329,6 +330,38 @@ class Interface {
 				resolve(this.exemples[src]);
 			});
 			xhr.send();
+		});
+	}
+	static traiterFolding() {
+		var elements = document.querySelectorAll("article > h2");
+		if (!window.localStorage.folded) {
+			window.localStorage.folded = "";
+		}
+		elements.forEach(element => {
+			this.guid(element.parentNode).then(data => {
+				if (window.localStorage.folded.indexOf(element.parentNode.getAttribute("id")) >= 0) {
+					element.parentNode.classList.add("folded");
+				}
+			});
+			element.addEventListener("click", e => {
+				var art = e.currentTarget.parentNode;
+				art.classList.toggle("folded");
+				if (art.classList.contains("folded")) {
+					window.localStorage.folded += ","+art.getAttribute("id");
+				} else {
+					window.localStorage.folded = window.localStorage.folded.replace(","+art.getAttribute("id"), "");
+				}
+			});
+		});
+	}
+	static guid(element) {
+		var txt = element.outerHTML;
+		txt = txt.replace(/[\s \t\r\n]/g, "");
+		txt = new TextEncoder().encode(txt);
+		return window.crypto.subtle.digest("SHA-1", txt).then(data => {
+			var hex = Array.from(new Uint8Array(data));
+			hex = hex.map(n => ("00"+n.toString(16)).slice(-2)).join("");
+			element.setAttribute("id", hex.substr(0,8));
 		});
 	}
 	static init() {

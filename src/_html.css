@@ -1,0 +1,24 @@
+.balises {
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-gap: 0em 1em;
+}
+.balises > li {
+  display: contents;
+}
+.balises > li > dfn {
+  grid-column: 1;
+}
+.balises > li > dfn > code::before {
+  content: "<";
+}
+.balises > li > dfn > code::after {
+  content: ">";
+}
+.balises > li > .definition {
+  grid-column: 2;
+}
+.balises > li > .exemple {
+  grid-column: span 2;
+  margin-bottom: .5em;
+}
