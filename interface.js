@@ -258,7 +258,7 @@ class Interface {
 				var finJunk = txt.indexOf("</script></body>");
 				txt = txt.substr(0, debutJunk) + txt.substr(finJunk + 9);
 			}
-			var langage = iframe.getAttribute("data-langage") || "javascript";
+			var langage = iframe.getAttribute("data-lang") || "javascript";
 			var noLines = (iframe.classList.contains("no-nos")) ? false : 1;
 			var exemple = this.dom_exemple(txt, noLines, langage);
 			iframe.parentNode.replaceChild(exemple, iframe);

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="docs.css" />
+	<script src="docs.js"></script>
+	<title>Documentation</title>
+</head>
+
+<body>
+	<div class="interface">
+		<header>
+			<h1>Documentation</h1>
+			<!-- <a href="api">API</a> -->
+		</header>
+		<footer>
+			&copy; Martin Boudreau
+		</footer>
+		<div class="body">
+			<div class="colonne">
+
+			</div>
+			<div class="contenu">
+				<ul>
+					<li>
+						<h2 id="les_fichiers">Les fichiers</h2>
+						<ul class="enum">
+							<li><a href="#accueil">index.html</a> Page d'accueil</li>
+						</ul>
+					</li>
+					<li>
+						<h2>Point de départ</h2>
+						<div class="bloccode">
+							<div>&lt;html lang="fr"&gt;</div>
+							<div>...</div>
+						</div>
+					</li>
+					<li>
+						<h2>Les classes et les attributs</h2>
+						<ul class="encadres">
+							<li>
+								<b><code>.balises</code></b>
+								<span>Dans <code>html.html</code>. S'applique à un <code>ul</code>. Définit une liste de balises et leur définitions. </span>
+								<div>Emmet: <code>ul.balises&gt;li[data-n=0]&gt;(dfn&gt;code)+.definition+(.exemple&gt;iframe.code.no-nos[data-lang=html]&gt;p)</code></div>
+							</li>
+							<li><b><code>.bloccode</code></b><span>Définit un bloc de code. Chacun de ses div est nowrap. Utilisé pour définir une syntaxe (pas un exemple).</span></li>
+							<li><b><code>.body</code></b><span>Le corps de la page (ou d'une section)</span></li>
+							<li><b><code>.colonnes</code></b><span>Dispose le contenu en colonnes à l'aide de flex.</span></li>
+							<li><b><code>.commandes</code></b><span>Appliqué à un <code>ul</code>. Définit une liste de commandes. Noeamment en javascript.</span></li>
+							<li><b><code>.definition</code></b><span>Identifie la définition d'un terme précédemment nommé à l'aide de dfn.</span></li>
+							<li><b><code>.definitions</code></b><span>Appliqué à un <code>ul</code>. Définit une liste de définitions (voir <code>.balises</code>)</span></li>
+							<li><b><code>.exemple</code></b><span>Identifie un exemple. Contient souvent un iframe qui est géré par programmation. Voir plus bas.</span>
+								<div>Emmet: <code>.exemple&gt;iframe.code.no-nos[data-lang=html]&gt;p</code></div>
+							</li>
+							<li><b><code>.exemples</code></b><span>Une balise contenant de petits exemples non géré par Prism.</span></li>
+							<li><b><code>.folded</code></b><span>Ajouté par programmation à un <code>article</code> lorsque l'usager clique sur le <code>h2</code></span></li>
+							<li><b><code>.glossaire</code></b><span>Ajouté à un ul. Définit un glossaire. Peut-être inutile.</span></li>
+							<li><b><code>.interface</code></b><span>Conteneur de la page</span></li>
+							<li><b><code>.keyword</code></b><span>Identifie un mot-clé du langage</span></li>
+							<li><b><code>.language-javascript</code></b><span>Définie par Prism. À mettre dans la balise <code>code</code> de la pair <code>pre>code</code>.</span></li>
+							<li><b><code>.no-nos</code></b><span>Indique de ne pas mettre les numéros de ligne. Est géré par Javascript. À mettre dans la balise <code>pre</code> de la pair <code>pre>code</code></span></li>
+							<li><b><code>.parametres</code></b><span>Identifie les paramètres d'une fonction. Permet le mode concis.</span></li>
+							<li><b><code>.prefixe</code></b><span>Identifie le préfix (objet parent) d'une propriété ou d'une méthode. Permet le mode concis.</span></li>
+							<li><b><code>.sections</code></b><span>le contenu sera divisé en colonnes à l'aide du css columns. (À revoir)</span></li>
+							<li><b><code>.terme</code></b><span>Définit le prototype d'une propriété ou d'une méthode.</span></li>
+							<li><b><code>[data-n]</code></b><span>Indique le niveau de difficulté/importance du concept. Est habituellement appliqué à un li ou un article. Les valeurs possibles sont : 0, 1, 2, (3)</span></li>
+							<li><b><code>[data-lang]</code></b><span>Est appliqué à un iframe. Indique par programmation à Prism quel langage utiliser pour la syntaxe.</span></li>	
+						</ul>
+					</li>
+					<li>
+						<h2>Les exemples (iframe)</h2>
+						<p>Pour ajouter un exemple dans une page, on n'a pas besoin de transformer les codes en entités. On n'a qu'à mettre les codes dans le contenu d'un <code>iframe</code> (sans <code>src</code>)  et, par programmation, le code sera utilisé par Prism.</p>
+						<p>Emmet : <code>div.exemple&gt;iframe.no-nos[data-lang=html]&gt;p</code></p>
+						<p>On peut également récupérer le code provenant d'un dépôt Github. On indique alors la fourchette de lignes à utiliser.</p>
+						<p>Emmet : <code>div.exemple&gt;a[href='<var>URL</var>#<var>L01L99</var>'&gt;{texte du lien}</code></p>
+						<p>On remplace <var>URL</var> par l'adresse absolue du fichier raw dans github. On indique le début et la fin du code à ;la place de <var>L01L99</var>. Github va également surligner les lignes lorsque l'on clique sur le lien.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

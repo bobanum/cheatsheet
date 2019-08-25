@@ -245,9 +245,6 @@ h6 + ul {
   padding: 0;
   list-style-type: none;
 }
-ul.syntaxes > li > h3 {
-  grid-column: span 2;
-}
 div.colonnes {
   display: grid;
   grid-template-columns: minmax(min-content, auto) minmax(min-content, 1fr);
@@ -279,9 +276,6 @@ ul.commandes .terme {
   align-items: baseline;
   padding-bottom: .2em;
   margin-bottom: .2em;
-}
-ul.commandes.html .terme {
-  justify-content: space-between;
 }
 ul.commandes .keyword {
   font-weight: bold;
@@ -426,7 +420,7 @@ samp span {
 .balises {
   display: grid;
   grid-template-columns: max-content auto;
-  grid-gap: .25em 1em;
+  grid-gap: 0em 1em;
 }
 .balises > li {
   display: contents;
@@ -445,7 +439,7 @@ samp span {
 }
 .balises > li > .exemple {
   grid-column: span 2;
-  margin-bottom: 1em;
+  margin-bottom: .5em;
 }
 #importance {
   width: 4em;
