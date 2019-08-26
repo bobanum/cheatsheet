@@ -93,7 +93,7 @@
 		<ul class="balises">
 			<li data-n="0">
 				<dfn><code>div</code></dfn>
-				<div class="definition">Balise générique </div>
+				<div class="definition">Balise générique "bloc"</div>
 				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-lang="html"><div class="signification">Division du contenu</div></iframe></div>
 			</li>
 			<li data-n="0">
@@ -129,10 +129,15 @@
 		</ul>
 	</article>
 	<article>
-		<h2>Texte courant</h2>
+		<h2>Contenu textuel</h2>
+		<h3>Texte courant</h3>
 		<ul class="balises">
-
-			<li data-n="0">
+				<li data-n="0">
+						<dfn><code>span</code></dfn>
+						<div class="definition">Balise générique "en ligne".</div>
+						<div class="exemple"><iframe frameborder="0" class="code no-nos" data-lang="html"><p>Ce mot est <span class="important">important</span>.</p></iframe></div>
+					</li>
+					<li data-n="0">
 				<dfn><code>h1</code>, <code>h2</code>... <code>h6</code></dfn>
 				<div class="definition">Titres </div>
 				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-lang="html">
@@ -183,9 +188,7 @@
 				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-lang="html"><p dir="ltr">Il a dit : <q><bdo dir="rtl">السلام عليكم</bdo> (<em>Was-salaam alaykum</em>)</q>.</p></iframe></div>
 			</li>
 		</ul>
-	</article>
-	<article>
-		<h2>Citations et références</h2>
+		<h3>Citations et références</h3>
 		<ul class="balises">
 			<li data-n="1">
 				<dfn><code>blockquote</code></dfn>
@@ -220,9 +223,7 @@
 				</iframe></div>
 			</li>
 		</ul>
-	</article>
-	<article>
-		<h2>Texte technique</h2>
+		<h3>Texte technique</h3>
 		<ul class="balises">
 				<li data-n="0">
 					<dfn><code>pre</code></dfn>
@@ -253,24 +254,80 @@ Répondez : <kbd>N</kbd>.</p>
 					</iframe></div>
 				</li>
 		</ul>
+		<h3>Entités importantes</h3>
+		<ul style="display:grid; grid-gap: 2em; grid-auto-flow: column; grid-auto-columns: max-content;">
+			<li><dfn>&lt;</dfn> <code>&amp;lt;</code></li>
+			<li><dfn>&gt;</dfn> <code>&amp;gt;</code></li>
+			<li><dfn>&amp;</dfn> <code>&amp;amp;</code></li>
+			<li><dfn>&quot;</dfn> <code>&amp;quot;</code></li>
+		</ul>
 	</article>
-	<!-- <article class="folded">
-		<h2>Citations et références</h2>
-		<ul class="definitions">
+	<!-- <article>
+		<h2>Liens et images</h2>
+		<h3>Adresse</h3>
+		<p>...</p>
+		<h3>Liens</h3>
+		<p>...</p>
+		<h3>Image</h3>
+		<p>...</p>
+		<h3>figure</h3>
+		<p>...</p>
+	</article> -->
+	<!-- <article>
+		<h2>Listes</h2>
+		<p>...</p>
+	</article> -->
+	<article>
+		<h2>Tableaux</h2>
+		<ul class="balises">
 			<li data-n="0">
-				<div class="terme"><samp></samp></div>
-				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-lang="html">
-						<p>exemple</p>
-					</iframe></div>
+				<dfn><code>table</code></dfn>
+				<div class="definition">Englobe le tableau.</div>
+			</li>
+			<li data-n="2">
+				<dfn><code>colgroup</code>, <code>col</code></dfn>
+				<div class="definition">Groupe de colonnes, colonne. Optionnel. Va au début du <code>table</code>.</div>
 			</li>
 			<li data-n="1">
-				<div class="terme"><samp></samp></div>
-				<div class="exemple"><iframe frameborder="0" class="code no-nos" data-lang="html">
-						<p>exemple</p>
-					</iframe></div>
+				<dfn><code>caption</code></dfn>
+				<div class="definition">Légende du tableau.</div>
 			</li>
-			
+			<li data-n="1">
+				<dfn><code>thead</code>, <code>tfoot</code></dfn>
+				<div class="definition">Entête et pied de tableau. Optionnel. Contient <code>tr</code>.</div>
+			</li>
+			<li data-n="0">
+				<dfn><code>tbody</code></dfn>
+				<div class="definition">Corps du tableau. Au moins 1. Contient <code>tr</code>.</div>
+			</li>
+			<li data-n="0">
+				<dfn><code>tr</code></dfn>
+				<div class="definition">Rangée de tableau. Contient <code>th</code> ou <code>td</code>.</div>
+			</li>
+			<li data-n="0">
+				<dfn><code>th</code>, <code>td</code></dfn>
+				<div class="definition">Cellule d'étiquette, cellule de donnée.</div>
+			</li>
 		</ul>
+		<h3>Attributs</h3>
+		<ul class="definitions">
+			<li data-n="0">
+				<dfn><code>colspan</code></dfn>
+				<span class="definition">S'applique à <code>th</code> et <code>td</code>. Étendu d'une cellule sur plusieurs colonnes.</span>
+			</li>
+			<li data-n="0">
+				<dfn><code>rowspan</code></dfn>
+				<span class="definition">S'applique à <code>th</code> et <code>td</code>. Étendu d'une cellule sur plusieurs rangées.</span>
+			</li>
+			<li data-n="1">
+				<dfn><code>scope</code></dfn>
+				<span class="definition">S'applique à <code>th</code>. Indique si l'étiquette identifie une <code>row</code> ou une <code>col</code>.</span>
+			</li>
+		</ul>
+	</article>
+	<!-- <article>
+		<h2>Formulaires</h2>
+		<p>...</p>
 	</article> -->
 			<!-- 
 				li[data-n=0]>(div.terme>samp)+div.exemple>iframe.code.no-nos[frameborder=0][data-lang=html]>p{exemple}

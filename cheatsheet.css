@@ -419,7 +419,7 @@ samp span {
 }
 .balises {
   display: grid;
-  grid-template-columns: max-content auto;
+  grid-template-columns: max-content 1fr;
   grid-gap: 0em 1em;
 }
 .balises > li {
@@ -492,7 +492,7 @@ samp span {
 :root:not(.expert) *[data-n="3"] {
   display: none;
 }
-@media all and (min-width: 1024px) {
+@media all and (min-width: 960px) {
   :root {
     font-size: 16px;
   }
@@ -503,7 +503,7 @@ samp span {
 }
 @media all and (max-aspect-ratio: 1 / 1) {
   :root {
-    font-size: 4vw;
+    font-size: 3vw;
   }
   div.interface > nav {
     font-size: 1em;
