@@ -109,7 +109,7 @@ div.interface > .principal ul li:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-@media all and (max-aspect-ratio: e("1 / 1")) {
+@media all and (max-aspect-ratio: 1 / 1) {
   div.interface > .principal a {
     height: 2em;
     padding: 0 1em;
@@ -191,7 +191,7 @@ header h6 {
           flex: 1 0 auto;
 }
 
-@media all and (max-aspect-ratio: e("1 / 1")) {
+@media all and (max-aspect-ratio: 1 / 1) {
   .menu-reactif {
     font-size: 1em;
     background-color: red;
@@ -202,7 +202,7 @@ header h6 {
   .menu-reactif > *.trigger {
     position: absolute;
     font-size: 1rem;
-    margin-top: e("calc(-1*var(--taille-trigger))");
+    margin-top: calc(-1 * var(--taille-trigger));
     right: 0;
     width: var(--taille-trigger);
     height: var(--taille-trigger);
@@ -591,7 +591,7 @@ samp span {
           order: -1;
 }
 
-@media all and (max-aspect-ratio: e("1 / 1")) {
+@media all and (max-aspect-ratio: 1 / 1) {
   .options {
     font-size: 1rem;
   }
@@ -696,7 +696,7 @@ samp span {
   }
 }
 
-@media all and (max-aspect-ratio: e("1 / 1")) {
+@media all and (max-aspect-ratio: 1 / 1) {
   :root {
     font-size: 3vw;
   }

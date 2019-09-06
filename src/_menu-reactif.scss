@@ -38,7 +38,7 @@
 		& > *.trigger {
 			position: absolute;
 			font-size: 1rem;
-			margin-top: e('calc(-1*var(--taille-trigger))');
+			margin-top: calc(-1 * var(--taille-trigger));
 			right: 0;
 			width: var(--taille-trigger);
 			height: var(--taille-trigger);
