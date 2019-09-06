@@ -1,4 +1,4 @@
-@import "_variables.less";
+@import "_variables.scss";
 .menu-reactif {
 	--taille-trigger: 2em;
 	line-height: 1;
@@ -27,7 +27,7 @@
 			flex: 1 0 auto;
 		}
 	}
-	@media all and (max-aspect-ratio: @aspect-ratio) {
+	@media all and (max-aspect-ratio: $aspect-ratio) {
 		font-size: 1em;
 		background-color: red;
 

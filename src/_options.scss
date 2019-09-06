@@ -1,4 +1,4 @@
-@import "_variables.less";
+@import "_variables.scss";
 .options {
 	font-size: .7em;
 	color: var(--couleur-coche);
@@ -44,7 +44,7 @@
 		height: 1.5em;
 		order: -1;
 	}
-	@media all and (max-aspect-ratio: @aspect-ratio) {
+	@media all and (max-aspect-ratio: $aspect-ratio) {
 		font-size: 1rem;
 		& > ul > li {
 			padding: 0 0.5em;
