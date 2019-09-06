@@ -2,11 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,200i,400,400i,600,600i,700,700i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:400,400i,700,700i&display=swap');
 */
-@import url('fira_sans.css');
+@import url('./fira_sans.css');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700&display=swap');
 
-
-@import "src/_variables.less";
+@import "./_variables.less";
 html {
 	height: 100%;
 }
@@ -14,6 +13,7 @@ html {
 body {
 	height: 100%;
 	margin: 0;
+	display:unset;
 }
 
 code {
@@ -107,7 +107,7 @@ header {
 		margin: 0;
 	}
 }
-@import "src/_menu-reactif.less";
+@import "./_menu-reactif.less";
 .bloccode {
 	border: 1px solid black;
 	font-family: monospace;
@@ -121,7 +121,7 @@ article > h2 {
 }
 .folded {
 	@media print {
-		display:none;
+		display:none !important;
 	}
 	& > :first-child {
 		opacity: .3;
@@ -132,7 +132,7 @@ article > h2 {
 			margin-left: -1em;
 		}
 		& ~ * {
-			display: none;
+			display: none !important;
 		}
 	}
 }
@@ -281,9 +281,9 @@ samp {
 
 //		flex-direction: column;
 }
-@import "src/_exemple.less";
-@import "src/_options.less";
-@import "src/_html.less";
+@import "./_exemple.less";
+@import "./_options.less";
+@import "./_html.less";
 
 #importance {
 	width: 4em;

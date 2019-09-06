@@ -20,6 +20,7 @@ html {
 body {
   height: 100%;
   margin: 0;
+  display: unset;
 }
 code {
   color: #59a659;
@@ -185,7 +186,7 @@ article > h2 {
 }
 @media print {
   .folded {
-    display: none;
+    display: none !important;
   }
 }
 .folded > :first-child {
@@ -198,7 +199,7 @@ article > h2 {
   margin-left: -1em;
 }
 .folded > :first-child ~ * {
-  display: none;
+  display: none !important;
 }
 svg.indicateur {
   width: 1em;

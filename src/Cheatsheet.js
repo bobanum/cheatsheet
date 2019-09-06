@@ -1,6 +1,6 @@
 /*jslint esnext:true, browser:true */
 /*globals Prism*/
-class Interface {
+export default class Cheatsheet {
 	static load() {
 		this.interface = document.body.appendChild(this.dom_interface());
 		this.traiterIFrames();
@@ -12,20 +12,20 @@ class Interface {
 		document.title =  title;
 	}
 	static ajouterStyle() {
-		document.currentScript.parentNode.insertBefore(this.dom_link("cheatsheet.css"), document.currentScript);
+		document.head.appendChild(this.dom_link("./src/cheatsheet.css"));
 		var s = this.dom_style();
-		document.currentScript.parentNode.insertBefore(s, document.currentScript);
+		document.head.appendChild(s);
 		this.style = s.sheet;
 	}
 	static ajouterPrism() {
 		var link = document.createElement("link");
 		link.setAttribute("rel", "stylesheet");
 		link.setAttribute("href", "cheatsheet.css");
-//		document.currentScript.parentNode.insertBefore(this.dom_link("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-coy.min.css"), document.currentScript);
-		document.currentScript.parentNode.insertBefore(this.dom_link("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css"), document.currentScript);
-		document.currentScript.parentNode.insertBefore(this.dom_link("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/plugins/line-numbers/prism-line-numbers.css"), document.currentScript);
-		document.currentScript.parentNode.insertBefore(this.dom_script("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.js"), document.currentScript);
-		document.currentScript.parentNode.insertBefore(this.dom_script("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/plugins/line-numbers/prism-line-numbers.js"), document.currentScript);
+//		document.head.appendChild(this.dom_link("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism-coy.min.css"));
+		document.head.appendChild(this.dom_link("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css"));
+		document.head.appendChild(this.dom_link("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/plugins/line-numbers/prism-line-numbers.css"));
+		document.head.appendChild(this.dom_script("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.js"));
+		document.head.appendChild(this.dom_script("https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/plugins/line-numbers/prism-line-numbers.js"));
 	}
 	static ajouterNiveaux() {
 		var elements = document.querySelectorAll("[data-n]");
@@ -383,4 +383,4 @@ class Interface {
 		});
 	}
 }
-Interface.init();
+Cheatsheet.init();
